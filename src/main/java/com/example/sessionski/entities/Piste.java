@@ -2,6 +2,7 @@ package com.example.sessionski.entities;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.Set;
 
 @Entity
 @Table(name = "Piste")
@@ -16,4 +17,6 @@ public class Piste implements Serializable {
     private Couleur couleur;
     private Integer longeur;
     private Integer pente;
+    @ManyToMany(mappedBy = "Piste", cascade = CascadeType.ALL)
+    private Set<Skieur> Skieur;
 }

@@ -2,6 +2,7 @@ package com.example.sessionski.entities;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.Set;
 
 @Entity
 @Table(name = "Cours")
@@ -18,5 +19,8 @@ public class Cours implements Serializable {
     @Enumerated(EnumType.STRING)
     private TypeCours typeCours;
     private Support support;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "cours")
+    private Set<Inscription> Inscription;
+
 
 }
